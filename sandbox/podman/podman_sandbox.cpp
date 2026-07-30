@@ -16,6 +16,14 @@ std::unique_ptr<SandboxProcess> PodmanSandbox::run(const SandboxConfig& config)
 {
     spdlog::info("[PodmanSandbox::run] Launching container image '{}'", config.image);
 
+    // check if mount host path exists, else create
+    for(const auto& mount : config.mounts) {
+        if(!std::filesystem::exists(mount.host_path)) {
+            spdlog::warn("Mount host path does not exist: {}. Creating directory." + mount.host_path.string());
+            std::filesystem::create_directories(mount.host_path);
+        }
+    }
+
     auto podman_exe = bpenv::find_executable("podman");
     if (podman_exe.empty()) {
         throw std::runtime_error("podman executable not found in PATH");

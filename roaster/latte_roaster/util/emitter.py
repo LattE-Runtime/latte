@@ -1,13 +1,11 @@
 import json
 
-from roaster.latte_roaster.dto.protocol import GrindEvent
+from latte_roaster.dto.protocol import GrindEvent
 
 
 class EventEmitter:
 
-    def emit(self, event: GrindEvent):
+    @classmethod
+    def emit(cls, event: GrindEvent):
 
-        print(
-            json.dumps(event),
-            flush=True
-        )
+        print(event, flush=True)

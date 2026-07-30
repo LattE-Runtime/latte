@@ -1,20 +1,13 @@
 from dataclasses import dataclass
+from typing import Any
 
-
-@dataclass
-class GrindRequest:
-
-    model: str
-
-    output: str
-
-    revision: str = "main"
 
 @dataclass
 class GrindEvent:
 
-    request: GrindRequest
+    type: str
 
-    status: str
+    payload: dict[str, Any]
 
-    message: str = ""
+    def __str__(self):
+        return f"GrindEvent(type={self.type}, payload={self.payload})"

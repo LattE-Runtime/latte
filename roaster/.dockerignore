@@ -1,0 +1,21 @@
+# Virtual environment — large, platform-specific, rebuilt inside the image anyway
+.venv/
+
+# Existing build artifacts
+build/
+dist/
+*.egg-info/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Development / editor
+.env
+.env.*
+*.log
+
+# uv lockfile is not needed inside the image (pip install -e . handles deps)
+uv.lock
