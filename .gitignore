@@ -73,3 +73,5 @@ Testing/
 
 *.egg-info/
 .venv/
+
+docs/

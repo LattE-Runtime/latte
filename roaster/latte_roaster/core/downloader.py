@@ -11,7 +11,7 @@ class HFDownloader:
     def download(
         self,
         repo: HFRepository,
-    ) -> Path:
+    ) -> str:
 
         EventEmitter.emit(event=GrindEvent(
             type="MODEL_DOWNLOAD_STARTED",
@@ -36,4 +36,4 @@ class HFDownloader:
             }
         ))
 
-        return Path(path)
+        return path
