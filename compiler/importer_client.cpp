@@ -21,7 +21,7 @@ void ImporterClient::fetch(const std::string& model_id)
         .network_enabled = true,
         .mounts = {
             sandbox::Mount {
-                .host_path = home / ".latte/models/hf",
+                .host_path = home / ".latte/models/hf" / model_id,
                 .sandbox_path = "/app/model",
                 .mode = sandbox::MountMode::ReadWrite
             }
