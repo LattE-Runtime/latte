@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from enum import Enum
 from typing import Any
 
 
@@ -15,4 +16,9 @@ class GrindRequest:
     model_id: str
     revision: str = "main"
     output_path: str = "/app/output"
+
+@dataclass
+class IRFormat(Enum):
+    ONNX = "onnx"       # Opted for POC
+    LATTE = "latte"     # TODO Stratgic path ahead
 
